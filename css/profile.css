@@ -1,0 +1,28 @@
+/* profile.css - 프로필 및 지도용 스타일 */
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+h2, h4 {
+  color: #1a237e;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#map {
+  border: 2px solid #1a237e;
+  border-radius: 10px;
+}
+
+#clickLatlng {
+  padding: 10px;
+  font-size: 16px;
+}

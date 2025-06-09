@@ -1,0 +1,60 @@
+<!-- 수정된 popup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창 테스트</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        let close_time;
+        let close_time2 = 50; // 50초로 연장
+
+        function close_window() {
+            window.close();
+        }
+
+        function show_time() {
+            let divTime = document.getElementById('Time');
+            divTime.innerText = close_time2 + "초 후에 자동으로 닫힙니다.";
+            close_time2--;
+
+            if (close_time2 < 0) {
+                clearTimeout(close_time);
+            } else {
+                setTimeout(show_time, 1000);
+            }
+        }
+
+        function closePopup() {
+            if (document.getElementById('check_popup').checked) {
+                setCookie("popupYN", "N", 1); // 1일 저장
+                self.close();
+            }
+        }
+
+        function setCookie(name, value, expiredays) {
+            const date = new Date();
+            date.setDate(date.getDate() + expiredays);
+            document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/; SameSite=None; Secure`;
+        }
+
+        function setupPopup() {
+            show_time();
+            close_time = setTimeout(close_window, 50000); // 50초 후 닫기
+        }
+    </script>
+</head>
+<body onload="setupPopup();" class="bg-dark text-light p-3">
+    <div class="text-center">
+        <h1 class="display-5">팝업창 확인</h1>
+        <h2 id="Time" class="my-3"></h2>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check_popup" onclick="closePopup();">
+            <label class="form-check-label" for="check_popup">
+                하루에 한번만 열기
+            </label>
+        </div>
+    </div>
+</body>
+</html>

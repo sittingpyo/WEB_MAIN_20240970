@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 페이지</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script defer src="crypto.js"></script>
+  <script defer src="jwt_token.js"></script>
+  <script defer src="session.js"></script>
+  <script type="module" src="login.js"></script>
+</head>
+<body class="bg-light text-dark p-4">
+  <div class="container" style="max-width: 500px;">
+    <h2 class="mb-4">🔐 로그인</h2>
+    <form id="loginForm" onsubmit="return check_input();">
+      <div class="mb-3">
+        <label for="typeEmailX" class="form-label">이메일</label>
+        <input type="email" class="form-control" id="typeEmailX" required>
+      </div>
+      <div class="mb-3">
+        <label for="typePasswordX" class="form-label">비밀번호</label>
+        <input type="password" class="form-control" id="typePasswordX" required>
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="idSaveCheck">
+        <label class="form-check-label" for="idSaveCheck">아이디 저장</label>
+        <p class="mb-0">계정이 없나요? <a href="/login/join.html" class="text-black-50 fw-bold">회원가입</a></p>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">로그인</button>
+    </form>
+  </div>
+
+</body>
+</html>

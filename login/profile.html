@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>개인 프로필</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/profile.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=353bdc160ffd9c1f1d7fda7bd5f10901&libraries=services,clusterer,drawing"></script>
+  <script type="module" src="../js/map.js" defer></script>
+  <script type="module" src="../js/jwt_token.js" defer></script>
+</head>
+<body onload="checkAuth()">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">My Profile</a>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="../image/logo.png" class="img-fluid rounded" alt="프로필 이미지">
+      </div>
+      <div class="col-md-8">
+        <h2>이름: 김선표</h2>
+        <p>📧 이메일: seonpyo@example.com</p>
+        <p>🎯 관심 분야: 웹 개발, AI 서비스</p>
+        <p>🛠️ 기술 스택: HTML, CSS, JavaScript, Python, Node.js</p>
+        <p>🚀 목표: 프론트엔드 개발자 </p>
+      </div>
+    </div>
+
+    <hr>
+
+    <h4>🗺 나의 위치</h4>
+    <p><em>지도를 클릭하면 위도/경도가 표시됩니다.</em></p>
+    <div id="map" style="width:100%; height:400px;"></div>
+    <div id="clickLatlng" class="mt-2 text-primary fw-bold"></div>
+  </div>
+</body>
+</html>
